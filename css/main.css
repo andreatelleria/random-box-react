@@ -1,0 +1,13 @@
+body {
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.box-size {
+  width: 50vh;
+  height: 10em;
+}
+
+.border {
+  border-radius: 8px;
+}

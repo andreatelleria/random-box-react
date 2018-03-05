@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Random Box</title>
+  <link rel="stylesheet" href="main.css">
+  <!-- Librería de REACT -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <!-- DOM Virtual de REACT -->
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- Babel para JSX -->
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    /* Función que devuelve un color random */
+    let randomColor = ()=> {
+      let colors = ['#47273c', '#4e5d79', '97ad38', '#008d92', '#ff5600'];
+      let index = Math.round(Math.random() * colors.length);
+      return colors[index];
+    };
+    
+    /* Función que devuelve un mensaje random */
+    let randomMessage = ()=> {
+      let message = ['¡Hola!', '¿Cómo estás?', '¡Suerte!', 'Hasta mañana', 'Que tengas un buen día'];
+      let index = Math.round(Math.random() * message.length);
+      return message[index];
+    }
+    
+    /* Creamos componente que contenga los elementos div y h3 */
+    class Box extends React.Component {
+        render() {
+          return (
+            <div className="box-size border" /* style={{backgroundColor: randomColor()}} */>
+              <h3 style={randomMessage()}></h3>
+            </div>
+          );
+        }
+      }
+    /* Renderizamos el componente al virtual dom de React */
+    ReactDOM.render(<Box/>, document.getElementById('root'));
+  </script>
+</body>
+
+</html>
